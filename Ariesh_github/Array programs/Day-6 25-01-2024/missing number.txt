@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, i, sumtotal;
+    printf("Enter the size of the array: ");
+    scanf("%d", &n);
+    printf("Enter the array elements: ");
+    
+    int arr[n];
+    for(i=0;i<n;i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    
+    //sumtotal=n*(n+1)/2;
+    sumtotal=(n+1)*(n+2)/2;
+    printf("sumtotal of the array is %d\n", sumtotal);
+
+    for(i=0;i<n;i++)
+    {
+        sumtotal=sumtotal-arr[i];
+    }
+    printf("The missing number in the array is %d:",sumtotal);
+    
+    return(0);
+}
+

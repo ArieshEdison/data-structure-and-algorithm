@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+int main()
+{
+    int originalnumber, number, result=0, num;
+    printf("Enter the number: ");
+    scanf("%d", &num);
+    originalnumber=num;
+    
+    while(originalnumber!=0)
+    {
+        number=originalnumber%10;
+        result=result+number*number*number;
+        originalnumber=originalnumber/10;
+    }
+    if(result==num)
+    {
+       printf("%d number is an amstrong number", num); 
+    }
+    else
+    {
+        printf("The %d number is an not an amstrong number", num);
+    }
+    return(0);
+}

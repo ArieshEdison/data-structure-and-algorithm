@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+void printSequence(int n, int m) {
+    printf("%d ", n);
+    if(n <= 0)
+        return;
+    printSequence(n - 5, m);
+    if(n != m)
+        printf("%d ", n + 5);
+}
+
+int main() {
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    printSequence(n, n);
+    return 0;
+}

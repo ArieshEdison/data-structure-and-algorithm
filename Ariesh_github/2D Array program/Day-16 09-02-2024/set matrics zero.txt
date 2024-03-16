@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+int main()
+{
+    int n,m,i,j,k;
+    printf("Enter the size of the array: ");
+    scanf("%d %d", &m, &n);
+    
+    int arr[m][n];
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("The array elements are [%d][%d]", i,j);
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            if(arr[i][j]==0)
+            {
+                for(k=0;k<n;k++)
+                {
+                    if(arr[k][j]!=0)
+                    {
+                        arr[k][j]=-1;
+                    }
+                }
+                for(k=0;k<m;k++)
+                {
+                    if(arr[i][k]!=0)
+                    {
+                        arr[i][k]=-1;
+                    }
+                }
+            }
+        }
+    }
+    
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            if(arr[i][j]==-1)
+            {
+                arr[i][j]=0;
+            }
+        }
+    }
+    
+    printf("The Modified array is:\n");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+    
+    return(0);
+}

@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main()
+{
+    int n,i,k,first=-1,last=-1;
+    printf("Enter the size of the array: ");
+    scanf("%d", &n);
+    
+    int arr[n];
+    printf("Enter the array elements: ");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    
+    printf("Enter the elements you want to find for first and last occurance in the array ");
+    scanf("%d", &k);
+    
+    for(i=0;i<n;i++)
+    {
+        if(k==arr[i])
+        {
+            if(first==-1)
+            {
+                first=i;
+            }
+            last=i;
+        }
+    }
+        if(first!=-1)
+        {
+            printf("\nThe first occurance in %d position", first);
+            printf("\nThe last occurance in %d position", last);
+        }
+        else
+        {
+            printf("Occurance not found:");
+        }
+    return(0);
+}

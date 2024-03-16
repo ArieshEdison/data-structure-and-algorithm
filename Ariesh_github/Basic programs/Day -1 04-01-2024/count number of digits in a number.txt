@@ -1,0 +1,22 @@
+#include<stdio.h>
+
+int main()
+{
+    int number;
+    printf("Enter the number: ");
+    scanf("%d", &number);
+    
+    int count=0;
+    do
+    {
+        number=number/10;
+        count++;
+        
+    }while(number!=0);
+    
+    //count++;
+    
+    printf("There are %d count in the number", count);
+    
+    return(0);
+}

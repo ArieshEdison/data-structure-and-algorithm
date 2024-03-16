@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main()
+{
+    int m,n,i,j,found, result,searchelement;
+    printf("Enter the size of the 2d-array: ");
+    scanf("%d %d", &m, &n);
+    
+    int arr[m][n];
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("Enter the elements [%d][%d]:", i, j);
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    printf("\nElements of the 2D array: ");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("%d ", arr[i][j]);
+        }
+    }
+    
+    printf("\nEnter the element want to search:");
+    scanf("%d", &searchelement);
+    
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            if(arr[i][j] == searchelement)
+            {
+                printf("The searchelement %d is found in the position [%d][%d]", searchelement,i,j);
+                found=1; 
+            }
+        }
+    }
+    if(!found)
+    {
+        printf("The searchelement %d is not found", searchelement);
+    }
+    return(0);
+}

@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+
+void quicksort(int arr[], int lowindex, int highindex)
+{
+    int j;
+    if(lowindex<highindex)
+    {
+        int pivotelement=arr[highindex];
+        int i =lowindex-1;
+        
+        for(j=lowindex;j<=highindex-1;j++)
+        {
+            if(arr[j]<=pivotelement)
+            {
+                i++;
+                
+                int temp =arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+        int temp = arr[i+1];
+        arr[i+1]=arr[highindex];
+        arr[highindex]=temp;
+        
+        quicksort(arr, lowindex, i);
+        quicksort(arr, i + 2, highindex);
+    }
+}
+
+int main()
+{
+    int n,i;
+    printf("Enter the size of the array: ");
+    scanf("%d", &n);
+    
+    int arr[n];
+    printf("Enter the %d array elements: ",n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    quicksort(arr,0,n-1);
+    
+    printf("\nThe quick sorted array is:\n");
+    for(i=0;i<n;i++)
+    {
+       printf("%d ", arr[i]); 
+    }
+    return(0);
+}
+

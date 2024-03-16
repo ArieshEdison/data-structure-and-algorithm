@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main()
+{
+    int n,i,j,k,sum=0,maxlength=0,startindex,endindex;
+    printf("Enter the size of the array:");
+    scanf("%d", &n);
+    
+    int arr[n];
+    printf("Enter the array elements:");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    
+    printf("Enter the sum value:");
+    scanf("%d", &k);
+    
+    for(i=0;i<n;i++)
+    {
+        for(j=i;j<n;j++)
+        {
+            sum=sum+arr[j];
+            if(sum==k && j-i+1>maxlength)
+            {
+                maxlength=j-i+1;
+                startindex=i;
+                endindex=j;
+            }
+        }
+    }
+    
+    if(maxlength>0)
+    {
+        printf("The longest subarry with sum value %d is:" ,k);
+        for(i=startindex; i<=endindex; i++)
+        {
+            printf("%d ", arr[i]);
+        }
+    }
+    else
+    {
+        printf("There is no longest subarray with sum %d is found", k);
+    }
+    
+    return(0);
+}

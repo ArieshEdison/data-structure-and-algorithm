@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+typedef struct {
+    int start;
+    int end;
+} Interval;
+
+int main() {
+    int n;
+    printf("Enter the number of intervals: ");
+    scanf("%d", &n);
+
+    Interval intervals[n], result[n];
+    printf("Enter the intervals (start end): \n");
+    for(int i = 0; i < n; i++) {
+        scanf("%d %d", &intervals[i].start, &intervals[i].end);
+    }
+
+    int index = 0;
+    result[index] = intervals[0];
+    for(int i = 1; i < n; i++) {
+        if(result[index].end >= intervals[i].start) {
+            if(result[index].end < intervals[i].end) {
+                result[index].end = intervals[i].end;
+            }
+        } else {
+            index++;
+            result[index] = intervals[i];
+        }
+    }
+
+    printf("Merged intervals are: \n");
+    for(int i = 0; i <= index; i++) {
+        printf("%d %d\n", result[i].start, result[i].end);
+    }
+
+    return 0;
+}

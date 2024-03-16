@@ -1,0 +1,87 @@
+#include <stdio.h>
+
+    int findceil( int arr[], int n, int k)
+    {
+        int low=0,high=n-1,ceil=-1, mid;
+        
+        while(low<=high)
+        {
+            mid=(low+high)/2;
+            if(arr[mid]==k)
+            {
+                return arr[mid];
+            }
+            else if(k<arr[mid])
+            {
+                ceil=arr[mid];
+                high=mid-1;
+            }
+            else
+            {
+                low=mid+1;
+            }
+        }
+        return ceil;
+    }
+    
+    int findfloor(int arr[], int n, int k)
+    {
+        int low=0, high=n-1, floor=-1, mid;
+        
+        while(low<=high)
+        {
+            mid=(low+high)/2;
+            if(arr[mid]==k)
+            {
+                return arr[mid];
+            }
+            else if(k<arr[mid])
+            {
+                high=mid-1;
+            }
+            else
+            {
+                floor=arr[mid];
+                low=mid+1;
+            }
+        }
+        return floor;
+    }
+    
+    int main()
+{
+    int arr[100],n,i,j,k,low,high,mid,end,flag=0;
+    printf("Enter the size of the sorted array: ");
+    scanf("%d", &n);
+    
+    for(i=0;i<n;i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    
+    printf("Enter the element you want to find for the ceil and floor: ");
+    scanf("%d", &k);
+    
+    int ceil = findceil(arr,n,k);
+    int floor = findfloor(arr,n,k);
+    
+    if(ceil==-1)
+    {
+        printf("\nceiling of %d does not exit in the array", k);
+    }
+    else
+    {
+        printf("\nThe ceiling of %d is %d", k, ceil);
+    }
+    
+    if(floor==-1)
+    {
+        printf("\nThe flooring of %d does not exit in the array", k);
+    }
+    else
+    {
+        printf("\nThe flooring of %d is %d", k, floor);
+    }
+    
+    return(0);
+}

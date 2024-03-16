@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main()
+{
+    int m,n,i,j,row,column;
+    printf("Enter the size of the matrix:");
+    scanf("%d %d", &m,&n);
+    
+    int arr[m][n];
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("Enter the matrix [%d][%d]:", i,j);
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    
+    printf("The entered matrix is:\n");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+    
+
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            if(i>0 && arr[i][j]<arr[i-1][j])
+            continue;
+            if(j<column-1 && arr[i][j]<arr[i][j+1])
+            continue;
+            if(i<row-1 && arr[i][j]<arr[i+1][j])
+            continue;
+            if(j>0 && arr[i][j]<arr[i][j-1])
+            continue;
+        }
+    }
+    printf("The peak element in the matrix is at [%d][%d] position", i,j);
+    return(0);
+}

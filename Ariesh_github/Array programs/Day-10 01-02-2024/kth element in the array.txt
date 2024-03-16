@@ -1,0 +1,113 @@
+#include <stdio.h>
+
+int main()
+{
+    int m,n,i,j,k,temp,index,arr3[k];
+    printf("Enter the size of the 1st array: ");
+    scanf("%d", &m);
+    printf("Enter the size of the 2nd array: ");
+    scanf("%d", &n);
+    
+    int arr1[m];
+    printf("Enter the 1st array elements: ");
+    for(i=0;i<m;i++)
+    {
+        scanf("%d", &arr1[i]);
+    }
+    
+    int arr2[n];
+    printf("\nEnter the 2nd array elements: ");
+    for(j=0;j<n;j++)
+    {
+        scanf("%d", &arr2[j]);
+    }
+    
+    //printf("\nEnter the kth element you want in the array: ");
+    //scanf("%d", &k);
+    
+    //sorting the 1st array
+    for(i=0;i<m;i++)
+    {
+        for(j=i+1;j<m;j++)
+        {
+            if(arr1[i]>arr1[j])
+            {
+                temp=arr1[i];
+                arr1[i]=arr1[j];
+                arr1[j]=temp;
+            }
+        }
+    }
+    printf("\nThe sorted 1st array is: ");
+    for(i=0;i<n;i++)
+    {
+        printf("%d ", arr1[i]);
+    }
+    
+    //sorting the second array
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(arr2[i]>arr2[j])
+            {
+                temp=arr2[i];
+                arr2[i]=arr2[j];
+                arr2[j]=temp;
+            }
+        }
+    }
+    
+    printf("\nThe sorted 2nd array is: ");
+    for(j=0;j<n;j++)
+    {
+        printf("%d ", arr2[j]);
+    }
+    
+    for(i=0;i<m;i++)
+    {
+        arr3[k]=arr1[i];
+        k++;
+    }
+    
+    for(j=0;j<n;j++)
+    {
+        arr3[k]=arr2[j];
+        k++;
+    }
+    
+    //merge both sorted arrays
+    printf("\nThe merged and sorted array is: ");
+    for(i=0;i<k;i++)
+    {
+        for(j=i+1;j<k;j++)
+        {
+            if(arr3[i]>arr3[j])
+            {
+                temp=arr3[i];
+                arr3[i]=arr3[j];
+                arr3[j]=temp;
+            }
+        }
+    }
+    
+    //The sorted array is
+    for(i=0;i<k;i++)
+    {
+        printf("%d ",arr3[i]);
+    }
+    
+    printf("\nEnter the index of the array:");
+    scanf("%d", &index);
+    
+    if(index>=0 && index<k)
+    {
+     printf("Element at index %d is %d\n", index, arr3[index]);
+     printf("The kth element of the array is %d", arr3[index-1]);
+    } 
+    else 
+    {
+        printf("Invalid index\n");
+    }
+    return(0);
+}

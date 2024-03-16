@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main()
+{
+    int n,i,j,k,l,temp;
+    printf("Enter the size of the array:");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter the elements of the array:");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(arr[i]>arr[j])
+            {
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+    }
+    printf("The sorted array is:");
+    for(i=0;i<n;i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    
+    printf("\nEnter the kth maximum element: ");
+    scanf("%d", &k);
+    
+    printf("\nEnter the kth minimum element: ");
+    scanf("%d", &l);
+    
+    if(k>=0 || k<n)
+    {
+        printf("\nThe kth maximum element is %d and kth minimum element is %d in the array", arr[n-k], arr[k-1]);
+    }
+    else
+    {
+        printf("There is no kth element in the array");
+    }
+    return(0);
+}

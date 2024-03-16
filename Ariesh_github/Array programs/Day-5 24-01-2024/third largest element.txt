@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int thirdlargest(int arr[], int size)
+{
+    return(arr[size-3]);
+}
+
+int main()
+{
+    int size, i, j, n, temp;
+    printf("Enter the size of the array ");
+    scanf("%d", &size);
+    
+    int arr[size];
+    printf("Enter the array elements\n");
+    for(i=0;i<size;i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    
+    printf("The array elements are\n");
+    for(i=0;i<size;i++)
+    {
+        printf("%d\n", arr[i]);
+    }
+    
+    printf("Find the third largest element in the array\n");
+    
+    for(i=0;i<size;i++)
+    {
+        for(j=i+1;j<size;j++)
+        {
+            if(arr[i]<arr[j])
+            {
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+    }
+    
+    printf("The sorted array are\n");
+    for(j=0;j<size;j++)
+    {
+        printf("%d\n", arr[j]);
+    }
+    
+    printf("The thirdlargestelement is %d",thirdlargest(arr,size));
+    
+    //for(j=0;j<size;j++)
+    //{
+        //int n =sizeof(arr[j])/sizeof(arr[0]);
+        //int thirdlargestelement =arr[n-3];
+    //}
+    //printf("The thirdlargestelement is %d\n", thirdlargestelement);
+    
+    return(0);
+}

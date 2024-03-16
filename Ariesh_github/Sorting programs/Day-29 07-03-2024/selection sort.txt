@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main()
+{
+    int n,i,j,temp;
+    printf("Enter the size of the array:");
+    scanf("%d", &n);
+    
+    int arr[n];
+    printf("\nEnter the %d array elements:", n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    
+    for(i=0;i<n-1;i++)
+    {
+        int min_element=i;
+        for(j=i+1;j<n;j++)
+        {
+            if(arr[j]<arr[min_element])
+            {
+                temp=arr[min_element];
+                arr[min_element]=arr[j];
+                arr[j]=temp;
+            }
+        }
+    }
+    printf("\nThe selection sorted array is:\n");
+    for(i=0;i<n;i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    return(0);
+}
